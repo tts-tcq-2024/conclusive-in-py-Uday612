@@ -24,13 +24,17 @@ def check_and_alert(alertTarget, batteryChar, temperatureInC):
 
 def send_to_controller(breachType):
   header = 0xfeed
-  print(f'{header}, {breachType}')
+  message = f'{header}, {breachType}'
+  print_message(message)
 
 def send_to_email(breachType):
   recepient = "a.b@c.com"
   if breachType == 'TOO_LOW':
-    print(f'To: {recepient}')
-    print('Hi, the temperature is too low')
+    message = f'To: {recepient}\nHi, the temperature is too low'
+    print_message(message)
   elif breachType == 'TOO_HIGH':
-    print(f'To: {recepient}')
-    print('Hi, the temperature is too high')
+    message = f'To: {recepient}\nHi, the temperature is too high'
+    print_message(message)
+    
+def print_message(message):
+    print(message)
