@@ -28,7 +28,7 @@ jobs:
         
       - name: Run and collect coverage
         run: |
-          coverage run --branch typewise-alert.test.py
+          coverage run --branch typewise_alert_test.py
           coverage html
           coverage report
       - name: Upload coverage
