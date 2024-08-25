@@ -29,12 +29,8 @@ def send_to_controller(breachType):
 
 def send_to_email(breachType):
   recepient = "a.b@c.com"
-  if breachType == 'TOO_LOW':
-    message = f'To: {recepient}\nHi, the temperature is too low'
-    print_message(message)
-  elif breachType == 'TOO_HIGH':
-    message = f'To: {recepient}\nHi, the temperature is too high'
-    print_message(message)
+  message = f'To: {recepient}\nHi, the temperature is {breachType}'
+  print_message(message)
     
 def print_message(message):
     print(message)
