@@ -66,6 +66,11 @@ class TypewiseTest(unittest.TestCase):
     batteryChar = {'coolingType': 'HI_ACTIVE_COOLING'}
     check_and_alert('TO_EMAIL', batteryChar, 30)
     mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is NORMAL')
+
+  @patch('builtins.print')
+  def test_print_message(self, mock_print):
+    print_message('Bosch')
+    mock_print.assert_called_with('Bosch')
     
 if __name__ == '__main__':
   unittest.main()
