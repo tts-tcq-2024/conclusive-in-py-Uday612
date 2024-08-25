@@ -44,13 +44,16 @@ class TypewiseTest(unittest.TestCase):
     mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is NORMAL')
 
   @patch('builtins.print')
-  def test_check_and_alert_to_controller_normal(self, mock_print):
+  def test_check_and_alert_to_controller(self, mock_print):
     batteryChar = {'coolingType': 'PASSIVE_COOLING'}
     check_and_alert('TO_CONTROLLER', batteryChar, 25)
     mock_print.asser_called_with('65261, NORMAL')
-    
-
-    
+    batteryChar = {'coolingType': 'HI_ACTIVE_COOLING'}
+    check_and_alert('TO_CONTROLLER', batteryChar, -5)
+    mock_print.asser_called_with('65261, TOO_LOW')
+    batteryChar = {'coolingType': 'MED_ACTIVE_COOLING'}
+    check_and_alert('TO_CONTROLLER', batteryChar, 50)
+    mock_print.asser_called_with('65261, TOO_HIGH')
 
 
 
