@@ -29,6 +29,10 @@ class TypewiseTest(unittest.TestCase):
   def test_send_to_controller(self, mock_print):
     send_to_controller('NORMAL')
     mock_print.asser_called_with('65261, NORMAL')
+    send_to_controller('TOO_LOW')
+    mock_print.asser_called_with('65261, TOO_LOW')
+    send_to_controller('TOO_HIGH')
+    mock_print.asser_called_with('65261, TOO_HIGH')
     
 
 
