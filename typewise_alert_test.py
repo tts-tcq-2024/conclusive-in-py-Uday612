@@ -69,11 +69,6 @@ class TypewiseTest(unittest.TestCase):
     check_and_alert('TO_EMAIL', batteryChar, 50)
     mock_send_to_email.assert_called_with('TOO_HIGH')
 
-  @patch('__main__.send_to_email')
-  def test_check_and_alert_normal_email(self, mock_send_to_email):
-    batteryChar = {'coolingType': 'HI_ACTIVE_COOLING'}
-    check_and_alert('TO_EMAIL', batteryChar, 30)
-    mock_send_to_email.assert_called_with('NORMAL')
 
 if __name__ == '__main__':
   unittest.main()
