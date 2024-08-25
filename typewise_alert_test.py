@@ -38,6 +38,11 @@ class TypewiseTest(unittest.TestCase):
   def test_send_to_email(self, mock_print):
     send_to_email('TOO_LOW')
     mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is too low')
+    send_to_email('TOO_HIGH')
+    mock_print_message.assert_called_with('To: a.b@c.com\nHi, the temperature is too high')
+    send_to_email('NORMAL')
+    mock_print_message.assert_called_with('To: a.b@c.com\nHi, the temperature is normal')
+    
 
     
 
