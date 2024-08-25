@@ -55,7 +55,17 @@ class TypewiseTest(unittest.TestCase):
     check_and_alert('TO_CONTROLLER', batteryChar, 50)
     mock_print.asser_called_with('65261, TOO_HIGH')
 
-
-
+  @patch('builtins.print')
+  def test_check_and_alert_to_email(self, mock_print):
+    batteryChar = {'coolingType': 'HI_ACTIVE_COOLING'}
+    check_and_alert('TO_EMAIL', batteryChar, -10)
+    mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is TOO_LOW')
+    batteryChar = {'coolingType': 'MED_ACTIVE_COOLING'}
+    check_and_alert('TO_EMAIL', batteryChar, 50)
+    mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is TOO_HIGH')
+    batteryChar = {'coolingType': 'HI_ACTIVE_COOLING'}
+    check_and_alert('TO_EMAIL', batteryChar, 30)
+    mock_print.mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is NORMAL')
+    
 if __name__ == '__main__':
   unittest.main()
