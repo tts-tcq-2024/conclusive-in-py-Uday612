@@ -37,11 +37,11 @@ class TypewiseTest(unittest.TestCase):
   @patch('builtins.print')
   def test_send_to_email(self, mock_print):
     send_to_email('TOO_LOW')
-    mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is too low')
+    mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is TOO_LOW')
     send_to_email('TOO_HIGH')
-    mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is too high')
+    mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is TOO_HIGH')
     send_to_email('NORMAL')
-    mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is normal')
+    mock_print.assert_called_with('To: a.b@c.com\nHi, the temperature is NORMAL')
     
 
     
