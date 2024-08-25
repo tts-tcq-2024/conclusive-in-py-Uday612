@@ -11,4 +11,4 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: all entries made
-      run: bash ./.github/workflows/check-complete.sh
+      run: bash ./.github/workflows/check-complete.bash
